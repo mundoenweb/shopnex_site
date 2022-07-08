@@ -4,37 +4,13 @@
 @import url("./reset.css");
 
 /* coomon */
-@import url("../header/Header.css");
-@import url("../header/header_and_title.css");
 @import url("../form/form.css");
 @import url("../form/buttons.css");
-@import url("../atoms/button_options.css");
-@import url("../atoms/text_status.css");
+
+
 
 /* PAGES */
+@import url("../../pages/session.css");
 
-/* login */
-@import url("../../pages/login/login.css");
-
-/* services */
-@import url("../../pages/services/services.css");
-
-/* sub. services */
-@import url("../../pages/sub_services/sub_services.css");
-
-/* customers */
-@import url("../../pages/customers/customers.css");
-
-/* workers */
-@import url("../../pages/worker/worker.css");
-
-/* banks */
-@import url("../../pages/banks/banks.css");
-
-/* bookings */
-@import url("../../pages/bookings/bookings.css");
-
-/* bookings */
-@import url("../../pages/booking/booking.css");
 
 

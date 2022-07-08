@@ -1,14 +1,14 @@
 import { createStore, combineReducers } from "redux"
 import {saveState} from './storeSaveAndLoad'
 import {
-  stylesApp,
+  styles,
   user
 } from "./reducers"
 import { composeWithDevTools } from "@redux-devtools/extension"
 // import thunk from "redux-thunk"
 
 const appReducer = combineReducers({
-  stylesApp,
+  styles,
   user,
 })
 

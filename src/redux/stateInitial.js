@@ -1,7 +1,3 @@
-export const stateApp = {
-  isPc: false,
-  nav: {
-    openMenuMovil: "",
-    colorHeader: false
-  }
+export const stylesInit = {
+  isPc: false
 }

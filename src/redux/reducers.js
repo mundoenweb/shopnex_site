@@ -1,27 +1,14 @@
-import { stateApp } from './stateInitial'
 import {
-  IS_PC,
-  OPEN_MENU_MOVIL,
+  stylesInit
+} from './stateInitial'
+import {
   LOGIN,
   SIGNOFF
 } from "./actions";
 
 
-export const stylesApp = (state = stateApp, { type, bool, string }) => {
+export const styles = (state = stylesInit, { type }) => {
   switch (type) {
-    case IS_PC:
-      return {
-        ...state,
-        isPc: bool
-      }
-    case OPEN_MENU_MOVIL:
-      return {
-        ...state,
-        nav: {
-          ...state.nav,
-          openMenuMovil: string
-        }
-      }
     default:
       return state
   }

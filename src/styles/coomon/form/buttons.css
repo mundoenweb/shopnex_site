@@ -4,13 +4,12 @@
   align-items: center;
   background-color: var(--color-main);
   color: white;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   border: none;
-  height: 30px;
+  height: 44px;
   font-size: 16px;
   transition: .4s;
-  padding: 0 20px;
 }
 .button:hover {
   background-color: var(--color-main-2);
@@ -21,7 +20,8 @@
 }
 .button_white {
   background-color: white;
-  color: black;
+  color: var(--color-main);
+  border: 1px solid var(--color-main);
 }
 .button_white:hover {
   background-color: var(--color-main);
@@ -30,6 +30,8 @@
 .button_white:active {
   background-color: var(--color-main-2);
 }
+
+/* usado hasta aqui por el momento */
 .button_ghost {
   border: 1px solid var(--color-main);
   background-color: initial;

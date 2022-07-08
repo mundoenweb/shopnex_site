@@ -1,0 +1,7 @@
+
+.form_session {
+    background-color: white;
+    border-radius: var(--border-radius) ;
+    width: 320px;
+    margin: auto;
+}

@@ -1,36 +1,26 @@
 :root {
-	--color-main: #13815C;
-	--color-main-2: #19A878;
-	--color-main-3: #1FD094;
-	--color-main-4: #3AE2A9;
-	--color-main-5: #61E8BB;
-	--color-main-6: #89EECC;
-	--color-main-7: #B0F3DD;
-	--color-main-8: #D8F9EE;
+	--color-main: #0C7FEA;
+	--color-main-2: #439FF5;
+	--color-main-3: #62AFF7;
+	--color-main-4: #A1CFFA;
+	--color-main-5: #C0DFFC;
 
-	--color-black: #131313;
-	--color-black-2: #313131;
-	--color-black-3: #4E4E4E;
-	--color-black-4: #6C6C6C;
-	--color-black-5: #898989;
-	--color-black-6: #A7A7A7;
-	--color-black-7: #C4C4C4;
-	--color-black-8: #E2E2E2;
-
-  --color-grey: #E2E2E2;
-	--color-grey-2: #E6E6E6;
-	--color-grey-3: #E9E9E9;
-	--color-grey-4: #EDEDED;
-	--color-grey-5: #F1F1F1;
-	--color-grey-6: #F4F4F4;
-	--color-grey-7: #F8F8F8;
-	--color-grey-8: #FBFBFB;
+	--color-black: #202020;
+	--color-black-2: #404040;
+	--color-black-3: #808080;
+	--color-black-4: #BFBFBF;
+	--color-black-5: #EBEBEB;
 
 
-  --zindex-back: 1;
-  --zindex-normal: 10;
-  --zindex-tooltip: 100;
-  --zindex-fixed: 1000;
-  --zindex-modal: 10000;
+	--zindex-back: 1;
+	--zindex-normal: 10;
+	--zindex-tooltip: 100;
+	--zindex-fixed: 1000;
+	--zindex-modal: 10000;
+
+	--border-radius: 5px;
+	--border-inputs: var(--color-black-4);
+	--color_text-inputs: var(--color-black-2);
+	--color-background: #ededed;
+	--box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .1);
 }
-
