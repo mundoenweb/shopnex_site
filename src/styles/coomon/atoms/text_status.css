@@ -1,0 +1,10 @@
+.p_status {
+  font-weight: 600;
+}
+.p_status_true {
+  font-weight: 600;
+  color: var(--color-main);
+}
+.p_status_false {
+  color: red;
+}

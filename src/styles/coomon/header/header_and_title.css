@@ -1,0 +1,24 @@
+.nav_second {
+ margin: 24px 0;
+ align-items: center;
+ gap: 7px;
+ height: 22px;
+ position: relative;
+}
+.title_nav {
+  font-size: 20px;
+}
+.svg_back {
+  cursor: pointer;
+}
+.svg_patch_back {
+  stroke: black;
+  transition: 0.3s;
+}
+.svg_patch_back:hover {
+  stroke: var(--color-main);
+}
+.nav_options {
+  position: absolute;
+  right: 0;
+}
