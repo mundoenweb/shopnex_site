@@ -4,7 +4,7 @@ import nProgress from "nprogress"
 
 export const SubmitSingIn = (data, startLogin, navigate) => {
   nProgress.start()
-  const api = `${process.env.REACT_APP_URL_API}`
+  const api = `${process.env.REACT_APP_URL_API}/`
 
   // ajax(api, 'POST', data)
   // return
