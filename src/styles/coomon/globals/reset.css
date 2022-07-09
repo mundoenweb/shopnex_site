@@ -24,6 +24,7 @@ body {
   width: 100%;
   margin: 0px auto;
   display: grid;
+  transition: 0.5s;
 }
 
 @media screen and (min-width: 1024px) {
