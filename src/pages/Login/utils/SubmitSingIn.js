@@ -16,7 +16,7 @@ export const SubmitSingIn = (data, startLogin, navigate) => {
       user.token = res.token
 
       startLogin(user)
-      navigate("tablero")
+      navigate("usuarios")
 
     })
     .catch(function (error) {

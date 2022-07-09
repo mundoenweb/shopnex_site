@@ -23,7 +23,7 @@ const Login = ({
   }
 
   const session = auth(user)
-  if (session) return <Navigate to="tablero" />
+  if (session) return <Navigate to="usuarios" />
 
   return (
     <section>
