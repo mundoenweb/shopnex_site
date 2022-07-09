@@ -18,7 +18,7 @@ const Users = () => {
                   <p className="title_descrip_list">{user.email}</p>
                 </div>
                 <ButtonsOptions>
-                  <Link to="/">Detalle usuario</Link>
+                  <Link to={`detalle/${user.id}`}>Detalle usuario</Link>
                 </ButtonsOptions>
               </div>
             ))
