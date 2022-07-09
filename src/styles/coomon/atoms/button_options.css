@@ -1,13 +1,13 @@
 .options_config {
   width: 16px;
   position: absolute;
-  right: 7px;
-  top: 7px;
+  right: 20px;
+  top: 18px;
   text-align: center;
   cursor: pointer;
 }
 .menu_ul_options {
-  background-color: var(--color-grey-4);
+  background-color: var(--color-black-4);
   border-radius: 3px;
   font-size: 13px;
   overflow: hidden;
@@ -15,7 +15,7 @@
   position: absolute;
   right: 0px;
   text-align: left;
-  z-index: var(--zindex-normal);
+  z-index: var(--zindex-tooltip);
   display: none;
   transition: 0.3;
 }
@@ -25,7 +25,7 @@
 }
 
 .menu_ul_options li:hover {
-  background-color: var(--color-grey);
+  background-color: var(--color-black-3);
 }
 .menu_ul_options_active {
   display: block;
