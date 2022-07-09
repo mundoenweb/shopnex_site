@@ -1,8 +1,9 @@
 import { connect } from "react-redux"
-import { openMenuMovil } from "../../redux/actionCreators"
+import { openMenuMovil } from "../../../../redux/actionCreators"
 
 const Header = ({
-  openNavMain
+  openNavMain,
+  title
 }) => {
   return (
     <header className="header">
@@ -12,7 +13,7 @@ const Header = ({
         alt="menu"
         className="nav_movil"
       />
-      <span className="title_header">Lista Usuarios</span>
+      <span className="title_header"> {title} </span>
     </header>
   )
 }

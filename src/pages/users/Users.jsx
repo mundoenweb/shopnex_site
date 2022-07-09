@@ -1,16 +1,14 @@
 import ButtonsOptions from "../../components/common/ButtonsOptions"
 import useFetchGet from "../../hooks/useFetchGet"
 import { Link } from 'react-router-dom'
-import Header from "../../components/templetes/Header"
+import Main from "../../components/templetes/Main/Main"
 
 const Users = () => {
 
   const [users] = useFetchGet('/users')
 
   return (
-    <main className="mw-grid">
-      <Header />
-      <section className="section_main">
+    <Main title='Lista usuarios'>
         <div className="box_list_generel">
           {
             users.map(user => (
@@ -26,8 +24,7 @@ const Users = () => {
             ))
           }
         </div>
-      </section>
-    </main>
+    </Main>
   )
 }
 
