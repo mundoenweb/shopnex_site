@@ -4,9 +4,12 @@
 @import url("./reset.css");
 
 /* coomon */
+@import url("../nav/Nav.css");
+@import url("../header//Header.css");
 @import url("../form/form.css");
 @import url("../form/buttons.css");
-@import url("../nav//Nav.css");
+@import url("../list.css");
+@import url("../atoms/button_options.css");
 
 
 
