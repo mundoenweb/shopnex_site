@@ -1,0 +1,23 @@
+.box_list_generel {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.item_list_general {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 45px;
+  padding: 18px 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+.item_list_general p {
+  margin: 0;
+}
+.title_item_list {
+  text-transform: capitalize;
+}
+.title_descrip_list {
+  text-transform: lowercase;
+  font-size: 14px;
+}
