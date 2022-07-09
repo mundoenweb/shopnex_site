@@ -7,7 +7,9 @@ function Main({
   return (
     <main className="mw-grid">
       <Header title={title} />
-      {children}
+      <section className='section_main'>
+        {children}
+      </section>
     </main>
   )
 }
