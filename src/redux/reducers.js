@@ -3,12 +3,20 @@ import {
 } from './stateInitial'
 import {
   LOGIN,
-  SIGNOFF
+  SIGNOFF,
+  OPEN_MENU_MAIN_MOVIL
 } from "./actions";
 
 
-export const styles = (state = stylesInit, { type }) => {
+export const styles = (state = stylesInit, { type, style }) => {
   switch (type) {
+    case OPEN_MENU_MAIN_MOVIL:
+      return {
+        ...state,
+        nav: {
+          openNav: style
+        }
+      }
     default:
       return state
   }

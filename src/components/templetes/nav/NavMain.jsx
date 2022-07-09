@@ -1,12 +1,19 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
+import {
+  openMenuMovil,
+  closeSesion
+} from '../../../redux/actionCreators'
 
 
 
 const NavMain = ({
   name,
-  email
+  email,
+  openNavMovil,
+  openNavMain,
+  endSession
 }) => {
 
   const [links, setLink] = useState([
@@ -37,9 +44,6 @@ const NavMain = ({
       childs: [
         { id: 1, name: 'Tipos de usuarios', path: '/' }
       ]
-    },
-    {
-      id: 5, name: 'Salir', path: '/', stlChilUl: '', childs: []
     }
 
   ])
@@ -62,52 +66,95 @@ const NavMain = ({
     setLink(li)
   }
 
-  return (
-    <div className="box_nav_main">
-      <div className="box_name_user">
-        <span>
-          {email.split('@')[0]}
-        </span>
-      </div>
+  const closeMenu = () => {
+    openNavMain('')
+  }
 
-      <nav>
-        <ul>
-          {
-            links.map(l => (
-              <li key={l.id}
-                onClick={() => liActive(l.id)}
-                className={`li_main_nav`}
+  useEffect(() => {
+    if (openNavMovil) {
+      window.document.body.style.overflowY = 'hidden'
+    }
+    else {
+      window.document.body.style.overflowY = ''
+    }
+
+  }, [openNavMovil])
+
+
+
+
+  return (
+    <>
+      {
+        openNavMovil &&
+        <div className='box_black_nav_movil' onClick={closeMenu} />
+      }
+      <div className={`box_nav_main ${openNavMovil}`}>
+        <div className="box_name_user">
+          <span>
+            {email.split('@')[0]}
+          </span>
+        </div>
+
+        <nav>
+          <ul>
+            {
+              links.map(l => (
+                <li key={l.id}
+                  onClick={() => liActive(l.id)}
+                  className={`li_main_nav`}
+                >
+                  <span className="li_main_nav_a">
+                    {l.name}
+                  </span>
+                  <ul style={{ height: l.stlChilUl }}>
+                    {
+                      l.childs.map(childLi => (
+                        <li key={childLi.id}>
+                          <Link
+                            className="li_child_nav_a"
+                            to={childLi.path}
+                            onClick={closeMenu}
+                          >
+                            {childLi.name}
+                          </Link>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </li>
+              ))
+            }
+            <li className={`li_main_nav`}>
+              <Link
+                to={'/'}
+                onClick={endSession}
+                className="li_main_nav_a"
               >
-                <span className="li_main_nav_a">
-                  {l.name}
-                </span>
-                <ul style={{ height: l.stlChilUl }}>
-                  {
-                    l.childs.map(childLi => (
-                      <li key={childLi.id} className="li_second_nav">
-                        <Link
-                          className="li_child_nav_a"
-                          to={childLi.path}
-                        >
-                          {childLi.name}
-                        </Link>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </div>
+                Salir
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
   )
 }
 
 const mapStateToProps = state => ({
   name: state.user.name,
-  email: state.user.email
+  email: state.user.email,
+  openNavMovil: state.styles?.nav?.openNav || ""
+})
+
+const mapDispatchToProps = dispatch => ({
+  openNavMain(style) {
+    dispatch(openMenuMovil(style))
+  },
+  endSession() {
+    dispatch(closeSesion())
+  }
 })
 
 
-export default connect(mapStateToProps)(NavMain)
+export default connect(mapStateToProps, mapDispatchToProps)(NavMain)
