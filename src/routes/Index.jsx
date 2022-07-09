@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import App from "../App"
 import Login from "../pages/Login/Login"
 import Private from "../pages/Private/Private"
+import Users from "../pages/users/Users"
 
 const RouterGlobal = () => {
   return (
@@ -11,8 +12,8 @@ const RouterGlobal = () => {
         <Route element={<Private />} >
           <Route element={<App />}>
 
-          <Route path="tablero" >
-              <Route index element={<h1>tablero principal</h1>} />
+          <Route path="usuarios" >
+              <Route index element={<Users />} />
               {/* <Route index element={<Services />} />
               <Route path="nuevo" element={<NewServices />} />
               <Route path="editar/:id" element={<EditServices />} /> */}
