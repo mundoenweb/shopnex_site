@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 .menu_ul_options {
-  background-color: var(--color-black-4);
+  background-color: var(--color-black-5);
   border-radius: 3px;
   font-size: 13px;
   overflow: hidden;
@@ -25,7 +25,7 @@
 }
 
 .menu_ul_options li:hover {
-  background-color: var(--color-black-3);
+  background-color: var(--color-black-4);
 }
 .menu_ul_options_active {
   display: block;

@@ -4,45 +4,79 @@
   box-shadow: var(--box-shadow);
   width: 100%;
 }
+
 .content_options {
   display: grid;
   position: relative;
   grid-template-columns: 1fr 45px;
   padding: 18px 30px;
 }
+
 .content_padding {
   padding: 18px 30px;
 }
-.contentmargin_top{
+
+.contentmargin_top {
   margin-top: 20px;
 }
-.content_w90 {
-  width: 90%;
+
+@media screen and (min-width: 1024px) {
+  .content_w90 {
+    width: 90%;
+  }
 }
-.content_w80 {
-  width: 80%;
+
+@media screen and (min-width: 1024px) {
+  .content_w90 {
+    width: 90%;
+  }
 }
-.content_w70 {
-  width: 70%;
+
+@media screen and (min-width: 1024px) {
+  .content_w80 {
+    width: 80%;
+  }
 }
-.content_w60 {
-  width: 60%;
+
+@media screen and (min-width: 1024px) {
+  .content_w70 {
+    width: 70%;
+  }
 }
-.content_w50 {
-  width: 50%;
+
+@media screen and (min-width: 1024px) {
+  .content_w60 {
+    width: 60%;
+  }
 }
+
+@media screen and (min-width: 1024px) {
+  .content_w50 {
+    width: 50%;
+  }
+}
+
 .content_w40 {
   width: 40%;
 }
+
 .content_w30 {
   width: 30%;
 }
+
 .box_content h2 {
   font-size: 16px;
   font-weight: normal;
 }
+
 .box_content p {
   font-size: 14px;
   margin: 2px 0;
 }
 
+.box_descrip_list_news {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 320px;
+  text-overflow: ellipsis;
+}
