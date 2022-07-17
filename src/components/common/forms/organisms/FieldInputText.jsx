@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import MsgErrorFields from "../atoms/MsgErrorFields"
 
 const FieldInputText = ({
@@ -11,19 +10,14 @@ const FieldInputText = ({
   minLengt,
   defaultValue
 }) => {
-  useEffect(() => {
-    if (defaultValue) {
-      document.getElementById(name).value = defaultValue || ""
-    }
-  }, [defaultValue, name])
 
   return (
     <label htmlFor={name}>{title || name}
-      {console.log(error[name])}
       <input
         type={type}
         name={name}
         id={name}
+        defaultValue={defaultValue}
         {...register(name, validate)}
       />
 

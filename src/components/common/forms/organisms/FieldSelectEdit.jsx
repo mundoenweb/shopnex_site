@@ -1,28 +1,17 @@
-import { useEffect, useRef } from "react"
-
 const FieldSelectEdit = ({
   title,
   name,
   options,
   value
 }) => {
-
-  const reference = useRef()
-
-  useEffect(() => {
-    if (value) {
-      const select = reference.current
-      select.value = value
-    }
-  }, [value])
-
+  console.log(value)
   return (
     <div>
       <label htmlFor={name}>{title || name}</label>
       <select
         name={name}
         id={name}
-        ref={reference}
+        defaultValue={value}
       >
         <option></option>
         {

@@ -6,7 +6,8 @@ const FieldSelectNew = ({
   options,
   register,
   validate,
-  errors
+  errors,
+  defaultValue
 }) => {
 
   return (
@@ -16,6 +17,7 @@ const FieldSelectNew = ({
         name={name}
         id={name}
         { ...register(name, validate) }
+        defaultValue={defaultValue}
       >
         <option></option>
         {
