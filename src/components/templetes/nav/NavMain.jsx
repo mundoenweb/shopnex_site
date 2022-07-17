@@ -20,29 +20,29 @@ const NavMain = ({
     {
       id: 1, name: 'Usuarios', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Lista usuarios', path: '/' },
-        { id: 2, name: 'Aprovación de Perfiles', path: '/' }
+        { id: 1, name: 'Lista usuarios', path: '/usuarios' },
+        { id: 2, name: 'Aprovación de Perfiles', path: '/usuarios/aprovaciones' }
       ]
     },
     {
       id: 2, name: 'Gestor de Tareas', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Lista de tareas', path: '/' },
-        { id: 2, name: 'Crear tarea', path: '/' },
-        { id: 3, name: 'Reporte', path: '/' }
+        { id: 1, name: 'Lista de tareas', path: '/tareas' },
+        { id: 2, name: 'Crear tarea', path: '/tareas/crear' },
+        { id: 3, name: 'Reporte', path: '/tareas/realizadas' }
       ]
     },
     {
       id: 3, name: 'Gestor de Noticias', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Lista de noticias', path: '/' },
-        { id: 2, name: 'Crear noticia', path: '/' }
+        { id: 1, name: 'Lista de noticias', path: '/noticias' },
+        { id: 2, name: 'Crear noticia', path: '/noticias/crear' }
       ]
     },
     {
       id: 4, name: 'Configuraciones', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Tipos de usuarios', path: '/' }
+        { id: 1, name: 'Tipos de usuarios', path: '/suscriptions' }
       ]
     }
 
