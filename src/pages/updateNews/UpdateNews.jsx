@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from "../../components/common/forms/atoms/Button"
 import FieldInputText from '../../components/common/forms/organisms/FieldInputText'
+import FieldInputTextarea from "../../components/common/forms/organisms/FieldInputTextarea"
 import Main from '../../components/templetes/Main/Main'
 import useFetchGet from "../../hooks/useFetchGet"
 import { handleUpdateNews } from "./utils/handleUpdateNews"
@@ -36,7 +37,7 @@ const UpdateNews = () => {
             error={errors}
           />
 
-          <FieldInputText
+          <FieldInputTextarea
             register={register}
             validate={{
               required: true
