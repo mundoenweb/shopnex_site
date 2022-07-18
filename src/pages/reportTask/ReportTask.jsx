@@ -2,21 +2,16 @@ import ButtonsOptions from "../../components/common/ButtonsOptions"
 import useFetchGet from "../../hooks/useFetchGet"
 import { Link } from 'react-router-dom'
 import Main from "../../components/templetes/Main/Main"
-import { handleDeleteTask } from "./utils/handleDeleteTask"
 
 const ReportTask = () => {
 
-  const [movements, , { setData }] = useFetchGet('/movements')
-
-  const deleteTask = (id, evt) => {
-    handleDeleteTask(evt, id, movements, setData)
-  }
+  const [movements] = useFetchGet('/movements/tasks')
 
   return (
-    <Main title='Tareas'>
+    <Main title='Reporte tareas realizadas'>
       {
         movements.length === 0 &&
-        <h2>cargando tareas</h2>
+        <h2>cargando reporte</h2>
       }
       <div className="box_content">
         {
@@ -29,20 +24,12 @@ const ReportTask = () => {
                     {movement.name}
                   </p>
                   <p className="title_item_list">
-                    {movement.description}
+                    {movement.task}
                   </p>
                 </div>
                 <ButtonsOptions>
-                  <Link to={`detalle/${movement.id}`}>
+                  <Link to={`/movement/task/${movement.id}`}>
                     Detalle
-                  </Link>
-                  <Link to={`actualizar/${movement.id}`}>
-                    Actualizar
-                  </Link>
-                  <Link onClick={(e) => deleteTask(movement.id, e)}
-                    to={`/`}
-                  >
-                    Eliminar
                   </Link>
                 </ButtonsOptions>
               </div>
