@@ -1,6 +1,6 @@
 // hooks
 import { useForm } from "react-hook-form"
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 // redux
 import { connect } from "react-redux";
 import { startSesion } from "../../redux/actionCreators";
@@ -36,7 +36,7 @@ const Login = ({
           }}
           type="text"
           name="email"
-          title="Usuario"
+          title="Email"
           error={errors}
         />
         <FieldInputText
@@ -50,6 +50,9 @@ const Login = ({
           error={errors}
         />
         <Button title='inisiar sesión' />
+        <Link to='/registro' className="button button_white">
+          registrarme gratis
+        </Link>
       </form>
     </section>
   )
