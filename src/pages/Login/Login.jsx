@@ -27,6 +27,7 @@ const Login = ({
 
   return (
     <section>
+      <div className="banner_blue_login"></div>
       <form className="form_session" onSubmit={handleSubmit(submit)}>
         <FieldInputText
           register={register}
