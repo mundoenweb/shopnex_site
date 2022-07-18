@@ -14,6 +14,12 @@ import News from "../pages/news/News"
 import NewsDetail from "../pages/newDetail/NewsDetail"
 import CreateNews from "../pages/createNews/CreateNews"
 import UpdateNews from "../pages/updateNews/UpdateNews"
+import ReportTask from "../pages/reportTask/ReportTask"
+import MovementTaskDetail from "../pages/movementTaskDetail.jsx/movementTaskDetail"
+import Subscriptions from "../pages/subscriptions/Subscriptions"
+import SubscriptionDetail from "../pages/subscriptionDetail/SubscriptionDetail"
+import CreateSubscripcion from "../pages/createSubscripcion/CreateSubscripcion"
+import UpdateSubscripcion from "../pages/updateSubscripcion/UpdateSubscripcion"
 
 const RouterGlobal = () => {
   return (
@@ -30,26 +36,27 @@ const RouterGlobal = () => {
             </Route>
 
             <Route path="tareas" >
-              <Route index element={<Tasks /> } />
+              <Route index element={<Tasks />} />
               <Route path="crear" element={<CreateTask />} />
               <Route path="actualizar/:id" element={<UpdateTask />} />
               <Route path="detalle/:id" element={<TaskDetail />} />
-              <Route path="realizadas" element={<h2>sitio en construccion</h2>} />
-              {/* <Route path="realizadas" element={<ReportTask />} /> */}
+              <Route path="realizadas" element={<ReportTask />} />
             </Route>
 
+            <Route path="movement/task/:id" element={<MovementTaskDetail />} />
+
             <Route path="noticias" >
-              <Route index element={<News /> } />
+              <Route index element={<News />} />
               <Route path="crear" element={<CreateNews />} />
               <Route path="actualizar/:id" element={<UpdateNews />} />
               <Route path="detalle/:id" element={<NewsDetail />} />
             </Route>
 
             <Route path="suscriptions" >
-              <Route index element={<h2>tipo de suscripciones</h2> } />
-              <Route path="crear" element={<h2>crear suscripción</h2>} />
-              <Route path="actualizar/:id" element={<h2>actualizar suscripción</h2>} />
-              <Route path="detalle/:id" element={<h2>detalle noticia</h2>} />
+              <Route index element={<Subscriptions />} />
+              <Route path="crear" element={<CreateSubscripcion />} />
+              <Route path="actualizar/:id" element={<UpdateSubscripcion />} />
+              <Route path="detalle/:id" element={<SubscriptionDetail />} />
             </Route>
 
           </Route>
