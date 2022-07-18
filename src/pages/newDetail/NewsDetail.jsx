@@ -6,6 +6,7 @@ import useFetchGet from '../../hooks/useFetchGet'
 const NewsDetail = () => {
   const params = useParams()
   const [news] = useFetchGet(`/news/${params.id}`)
+  const uri = process.env.REACT_APP_URL_API
 
 
   return (
@@ -20,9 +21,12 @@ const NewsDetail = () => {
           <div>
             <h2>{news[0].name}</h2>
             <br />
-            <p>Descripción: {news[0].description}</p>
+            <p className='p_pre'>Descripción: {news[0].description}</p>
             <br />
-            <p>Imagen: {news[0].image}</p>
+            {
+              news[0].image !== '/'  &&
+              <img src={`${uri}${news[0].image}`} alt={news[0].name} className='image_detail_new' />
+            }
           </div>
         </div>
       }
