@@ -29,7 +29,7 @@ const TaskDetail = () => {
             <p>Estado: {task[0].active ? 'activa' : 'desactivada'}</p>
             <p>Costo: S./ {task[0].cost}</p>
             <br />
-            <p>Descripción: {task[0].description}</p>
+            <p className='p_pre'>Descripción: {task[0].description}</p>
             <br />
             <p>Contrato: {task[0].contract}</p>
           </div>
