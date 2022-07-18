@@ -18,11 +18,13 @@ const UserDetail = () => {
     handlerActive(evt, user[0], setData)
   }
 
+  const uri = process.env.REACT_APP_URL_API
+
   return (
     <Main title='Detalle usuario'>
       {
         !user.length &&
-        < div > Cargando datos del usuario </div>
+        <div> Cargando datos del usuario </div>
       }
       {
         user.length > 0 &&
@@ -60,9 +62,24 @@ const UserDetail = () => {
           <div className='box_content content_options contentmargin_top'>
             <div>
               <h2>Credenciales:</h2>
-              <p>Foto Perfil: {user[0].photo_perfil || 'pendiente'}</p>
-              <p>Foto sosteniendo credencial: {user[0].photo_credential_revers || 'pendiente'}</p>
-              <p>Foto credencial frontal: {user[0].photo_credential_front || 'pendiente'}</p>
+              <p>Foto Perfil: {user[0].photo_perfil
+                ? <a href={`${uri}${user[0].photo_perfil}`} target='new'>
+                  ver imagen
+                </a>
+                : 'pendiente'}
+              </p>
+              <p>Foto credencial frontal: {user[0].photo_credential_front
+                ? <a href={`${uri}${user[0].photo_credential_front}`} target='new'>
+                  ver imagen
+                </a>
+                : 'pendiente'}
+              </p>
+              <p>Foto sosteniendo credencial: {user[0].photo_credential_revers
+                ? <a href={`${uri}${user[0].photo_credential_revers}`} target='new'>
+                  ver imagen
+                </a>
+                : 'pendiente'}
+              </p>
             </div>
             <ButtonsOptions>
               {
