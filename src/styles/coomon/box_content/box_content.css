@@ -76,7 +76,12 @@
 
 .box_descrip_list_news {
   overflow: hidden;
-  white-space: nowrap;
-  max-width: 320px;
-  text-overflow: ellipsis;
+  white-space: pre-wrap;
+}
+
+.p_pre {
+  white-space: pre-wrap;
+}
+.image_detail_new {
+  max-width: 350px;
 }
