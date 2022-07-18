@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate, useParams } from 'react-router-dom'
 import Button from "../../components/common/forms/atoms/Button"
 import FieldInputText from '../../components/common/forms/organisms/FieldInputText'
+import FieldInputTextarea from "../../components/common/forms/organisms/FieldInputTextarea"
 import FieldSelectNew from '../../components/common/forms/organisms/FieldSelectNew'
 import Main from '../../components/templetes/Main/Main'
 import useFetchGet from "../../hooks/useFetchGet"
@@ -40,24 +41,22 @@ const UpdateTask = () => {
             error={errors}
           />
 
-          <FieldInputText
+          <FieldInputTextarea
             register={register}
             validate={{
               required: true
             }}
-            type="texttarea"
             name="description"
             title="descripcion"
             defaultValue={task[0].description}
             error={errors}
           />
 
-          <FieldInputText
+          <FieldInputTextarea
             register={register}
             validate={{
               required: true
             }}
-            type="text"
             name="contract"
             title="descripcion del contrato"
             defaultValue={task[0].contract}
