@@ -42,7 +42,8 @@ const NavMain = ({
     {
       id: 4, name: 'Configuraciones', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Tipos de usuarios', path: '/suscriptions' }
+        { id: 1, name: 'Tipos de suscripciones', path: '/suscriptions' },
+        { id: 2, name: 'Crear suscripcion', path: '/suscriptions/crear' },
       ]
     }
 
