@@ -29,7 +29,7 @@ const News = () => {
                     {n.name}
                   </h2>
                     <p className="title_item_list box_descrip_list_news">
-                      {n.description}
+                      {n.description.split('\n')[0]}
                     </p>
                 </div>
                 <ButtonsOptions>
