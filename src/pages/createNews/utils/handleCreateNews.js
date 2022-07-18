@@ -16,8 +16,7 @@ export const handleCreateNews = (data, form, navigate) => {
 
   axios.post(api, formData, options)
     .then(res => {
-      console.log(res)
-      // navigate('/tareas')
+      navigate('/noticias')
     })
     .catch(err => {
       console.log(err.response.data)

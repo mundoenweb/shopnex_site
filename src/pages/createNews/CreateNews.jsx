@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom'
 import Button from "../../components/common/forms/atoms/Button"
 import FieldInputText from '../../components/common/forms/organisms/FieldInputText'
+import FieldInputTextarea from "../../components/common/forms/organisms/FieldInputTextarea"
 import Main from '../../components/templetes/Main/Main'
 import { handleCreateNews } from "./utils/handleCreateNews"
 
@@ -30,7 +31,7 @@ const CreateNews = () => {
           error={errors}
         />
 
-        <FieldInputText
+        <FieldInputTextarea
           register={register}
           validate={{
             required: true
