@@ -3,10 +3,13 @@ import { Outlet } from 'react-router-dom'
 import NavMain from './components/templetes/nav/NavMain';
 // utils
 import useNProgress from './hooks/useNProgress'
+import { saveSubscription } from './redux/actionCreators';
+
 
 function App() {
-
+  
   useNProgress()
+  saveSubscription()
 
   return (
     <>
@@ -16,4 +19,6 @@ function App() {
   )
 }
 
-export default App;
+
+
+export default App
