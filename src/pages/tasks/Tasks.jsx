@@ -1,16 +1,17 @@
 import ButtonsOptions from "../../components/common/ButtonsOptions"
 import useFetchGet from "../../hooks/useFetchGet"
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import Main from "../../components/templetes/Main/Main"
-import { handleDeleteTask } from "./utils/handleDeleteTask"
+import { connect } from "react-redux"
 
-const Tasks = () => {
+const Tasks = ({
+  certificate
+}) => {
 
-  const [tasks, , { setData }] = useFetchGet('/tasks')
+  const [tasks] = useFetchGet('/tasks')
 
-  const deleteTask = (id, evt) => {
-    handleDeleteTask(evt, id, tasks, setData)
-  }
+  if (!certificate) return <Navigate to='/usuario/pendiente' />
+
 
   return (
     <Main title='Tareas'>
@@ -21,26 +22,18 @@ const Tasks = () => {
       <div className="box_content">
         {
           tasks.map(task => (
-            <div key={task.id} className="box_content content_options">
+            <div key={task.id} className="box_content content_options content_border">
               <div>
                 <h2>
                   {task.name}
                 </h2>
                 <p className="title_item_list">
-                  {task.description.split(`\n`)[0]}
+                  Costo: {task.cost} S/.
                 </p>
               </div>
               <ButtonsOptions>
-                <Link to={`detalle/${task.id}`}>
-                  Detalle
-                </Link>
-                <Link to={`actualizar/${task.id}`}>
-                  Actualizar
-                </Link>
-                <Link onClick={(e) => deleteTask(task.id, e)}
-                  to={`/`}
-                >
-                  Eliminar
+                <Link to={`${task.id}`}>
+                  Realizar tarea
                 </Link>
               </ButtonsOptions>
             </div>
@@ -51,4 +44,8 @@ const Tasks = () => {
   )
 }
 
-export default Tasks
+const mapStateToProps = state => ({
+  certificate: state.user.data.certificate
+})
+
+export default connect(mapStateToProps)(Tasks)
