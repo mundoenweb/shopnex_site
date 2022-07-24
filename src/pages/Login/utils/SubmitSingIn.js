@@ -16,13 +16,12 @@ export const SubmitSingIn = (data, startLogin, navigate) => {
       user.token = res.token
 
       startLogin(user)
-      navigate("usuarios")
+      navigate("/inicio")
 
     })
     .catch(function (error) {
       const err = error.response.data.messageError
       alert(err.message)
-      // alert("err.message")
     })
     .then(()=> nProgress.done())
 }
