@@ -9,7 +9,7 @@ const useFetchGet = (endPoint) => {
   const [resGeneral, setResGeneral] = useState()
   const [data, setData] = useState([])
   const [error, setError] = useState(false)
-  const token = store.getState().user.token
+  const token = store.getState().user.data.token
 
   useEffect(() => {
     if (!token) return
