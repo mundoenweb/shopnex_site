@@ -14,7 +14,7 @@ const useNProgress = () => {
     }
     setTimeout(() => {
       if (nProgress) nprogress.done()
-    }, 250);
+    }, 333);
   }, [location, nProgress])
 
   return []
