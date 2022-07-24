@@ -1,12 +1,12 @@
 import {
-  stylesInit
+  stylesInit, userInit
 } from './stateInitial'
 import {
   LOGIN,
   SIGNOFF,
+  SAVE_SUBSCRIPTION,
   OPEN_MENU_MAIN_MOVIL
 } from "./actions";
-
 
 export const styles = (state = stylesInit, { type, style }) => {
   switch (type) {
@@ -22,12 +22,19 @@ export const styles = (state = stylesInit, { type, style }) => {
   }
 }
 
-export const user = (state = {}, { type, user }) => {
+export const user = (state = userInit, { type, user, subscription  }) => {
   switch (type) {
     case LOGIN:
-      return user
+      return {
+        data: user
+      }
+    case SAVE_SUBSCRIPTION:
+      return {
+        ...state,
+        subscription
+      }
     case SIGNOFF:
-      return user
+      return userInit
     default:
       return state
   }
