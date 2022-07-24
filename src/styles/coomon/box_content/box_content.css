@@ -20,6 +20,9 @@
   margin-top: 20px;
 }
 
+.content_border {
+  border-bottom: 1px solid var(--border-color);
+}
 @media screen and (min-width: 1024px) {
   .content_w90 {
     width: 90%;
@@ -85,3 +88,13 @@
 .image_detail_new {
   max-width: 350px;
 }
+.box_content_grid_2 {
+  display: grid;
+  gap: 40px;
+}
+@media screen and (min-width: 1024px) {
+  .box_content_grid_2 {
+    grid-template-columns: 40% 1fr;
+  }
+}
+
