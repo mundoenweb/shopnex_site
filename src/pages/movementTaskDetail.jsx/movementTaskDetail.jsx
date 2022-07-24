@@ -9,10 +9,10 @@ const MovementTaskDetail = () => {
   const [movement] = useFetchGet(`/movements/${params.id}`)
 
   return (
-    <Main title='Detalle usuario'>
+    <Main title='Detalle tarea realizada'>
       {
         !movement.length &&
-        <div> Cargando datos del movimiento </div>
+        <div> Cargando movimiento </div>
       }
       {
         movement.length > 0 &&
@@ -27,7 +27,7 @@ const MovementTaskDetail = () => {
             <h2>Detalle de la tarea realizada:</h2>
             <p>Nombre: {movement[0].taskName}</p>
             <p>Fecha: {movement[0].date.split('T')[0]}</p>
-            <p>Comisión: {movement[0].nameUser}</p>
+            <p>Comisión: {movement[0].commission_task}</p>
           </div>
         </>
       }
