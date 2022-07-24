@@ -18,35 +18,22 @@ const NavMain = ({
 
   const [links, setLink] = useState([
     {
-      id: 1, name: 'Usuarios', path: '/', stlChilUl: '',
+      id: 2, name: 'Perfil', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Lista usuarios', path: '/usuarios' },
-        { id: 2, name: 'Aprovación de Perfiles', path: '/usuarios/aprovaciones' }
+        { id: 1, name: 'Mis datos', path: '/usuario' },
+        { id: 2, name: 'Actualizar datos', path: '/usuario/actualizar_datos' },
+        { id: 3, name: 'Verificar cuenta', path: '/usuario/credenciales' },
+        { id: 4, name: 'Mis referidos', path: '/usuario/referidos' },
+        { id: 5, name: 'Agregar cuenta bancaria', path: '/usuario/crear_cuenta' },
       ]
     },
     {
-      id: 2, name: 'Gestor de Tareas', path: '/', stlChilUl: '',
+      id: 3, name: 'Gestor de Tareas', path: '/', stlChilUl: '',
       childs: [
-        { id: 1, name: 'Lista de tareas', path: '/tareas' },
-        { id: 2, name: 'Crear tarea', path: '/tareas/crear' },
-        { id: 3, name: 'Reporte', path: '/tareas/realizadas' }
-      ]
-    },
-    {
-      id: 3, name: 'Gestor de Noticias', path: '/', stlChilUl: '',
-      childs: [
-        { id: 1, name: 'Lista de noticias', path: '/noticias' },
-        { id: 2, name: 'Crear noticia', path: '/noticias/crear' }
-      ]
-    },
-    {
-      id: 4, name: 'Configuraciones', path: '/', stlChilUl: '',
-      childs: [
-        { id: 1, name: 'Tipos de suscripciones', path: '/suscriptions' },
-        { id: 2, name: 'Crear suscripcion', path: '/suscriptions/crear' },
+        { id: 1, name: 'Tareas Pendientes', path: '/tareas' },
+        { id: 2, name: 'Historial de tareas', path: '/tareas/historial' }
       ]
     }
-
   ])
 
   const liActive = (id) => {
@@ -99,6 +86,14 @@ const NavMain = ({
 
         <nav>
           <ul>
+            <li className={`li_main_nav`}>
+              <Link
+                to={'/inicio'}
+                className="li_main_nav_a"
+              >
+                Inicio
+              </Link>
+            </li>
             {
               links.map(l => (
                 <li key={l.id}
@@ -128,6 +123,30 @@ const NavMain = ({
             }
             <li className={`li_main_nav`}>
               <Link
+                to={'/susbcripciones'}
+                className="li_main_nav_a"
+              >
+                Sube a premiun
+              </Link>
+            </li>
+            <li className={`li_main_nav`}>
+              <Link
+                to={'/noticias'}
+                className="li_main_nav_a"
+              >
+                Noticias
+              </Link>
+            </li>
+            <li className={`li_main_nav`}>
+              <Link
+                to={'/ayuda'}
+                className="li_main_nav_a"
+              >
+                Ayuda
+              </Link>
+            </li>
+            <li className={`li_main_nav`}>
+              <Link
                 to={'/'}
                 onClick={endSession}
                 className="li_main_nav_a"
@@ -143,8 +162,8 @@ const NavMain = ({
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
-  email: state.user.email,
+  name: state.user.data.name,
+  email: state.user.data.email,
   openNavMovil: state.styles?.nav?.openNav || ""
 })
 
