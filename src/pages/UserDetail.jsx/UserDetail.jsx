@@ -1,104 +1,97 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import ButtonsOptions from '../../components/common/ButtonsOptions'
 import Main from '../../components/templetes/Main/Main'
 import useFetchGet from '../../hooks/useFetchGet'
-import { handlerActive } from './utils/handlerActive'
-import { handlerCertificate } from './utils/handlerCertificate'
 
-const UserDetail = () => {
-  const params = useParams()
+const UserDetail = ({
+  user
+}) => {
 
-  const [user, , { setData }] = useFetchGet(`/users/${params.id}`)
-
-  const certificate = (evt) => {
-    handlerCertificate(evt, user[0], setData)
-  }
-  const active = (evt) => {
-    handlerActive(evt, user[0], setData)
-  }
-
+  const [banks] = useFetchGet(`/banks_users/all/${user.id}`)
   const uri = process.env.REACT_APP_URL_API
 
   return (
     <Main title='Detalle usuario'>
+      <div className='box_content content_options'>
+        <div>
+          <h2>Datos del usuario:</h2>
+          <p>Nombre: {user.name}</p>
+          <p>email: {user.email}</p>
+          <p>DNI: {user.number_credential}</p>
+          <p>Tlf.: {user.phone}</p>
+          <p>{!user.active && 'SUSPENDIDO'}</p>
+          <p>
+            {
+              !user.certificate
+                ? 'NO CERTIFICADO'
+                : 'CERTIFICADO'
+            }
+          </p>
+        </div>
+        <ButtonsOptions>
+          <Link to={`actualizar_datos`}>
+            Actualizar datos
+          </Link>
+        </ButtonsOptions>
+      </div>
+      <div className='box_content content_options contentmargin_top'>
+        <div>
+          <h2>Credenciales:</h2>
+          <p>Foto Perfil: {user.photo_perfil
+            ? <a href={`${uri}${user.photo_perfil}`} target='new'>
+              ver imagen
+            </a>
+            : 'pendiente'}
+          </p>
+          <p>Foto credencial frontal: {user.photo_credential_front
+            ? <a href={`${uri}${user.photo_credential_front}`} target='new'>
+              ver imagen
+            </a>
+            : 'pendiente'}
+          </p>
+          <p>Foto sosteniendo credencial: {user.photo_credential_revers
+            ? <a href={`${uri}${user.photo_credential_revers}`} target='new'>
+              ver imagen
+            </a>
+            : 'pendiente'}
+          </p>
+        </div>
+        <ButtonsOptions>
+          <Link to={`credenciales`}>
+            Actualizar credenciales
+          </Link>
+        </ButtonsOptions>
+      </div>
+
       {
-        !user.length &&
-        <div> Cargando datos del usuario </div>
-      }
-      {
-        user.length > 0 &&
-        <>
-          <div className='box_content content_options'>
-            <div>
-              <h2>Datos del usuario:</h2>
-              <p>Nombre: {user[0].name}</p>
-              <p>email: {user[0].email}</p>
-              <p>DNI: {user[0].number_credential}</p>
-              <p>Tlf.: {user[0].phone}</p>
-              <p>{!user[0].active && 'SUSPENDIDO'}</p>
-              <p>
-                {
-                  !user[0].certificate
-                    ? 'NO CERTIFICADO'
-                    : 'CERTIFICADO'
-                }
-              </p>
-            </div>
-            <ButtonsOptions>
-              {
-                user[0].active
-                  ?
-                  <Link to={`/`} onClick={active}>
-                    Suspender
+        banks.length > 0 &&
+        <div className='box_content contentmargin_top'>
+          {
+            banks.map(bank => (
+              <div className='box_content content_options'>
+                <div>
+                  <h2>{bank.name}</h2>
+                  <p>Número de cuenta: {bank.number_count}</p>
+                  <p>Número CCI: {bank.number_count_cci}</p>
+                </div>
+                <ButtonsOptions>
+                  <Link to={`actualizar_banco/${bank.id}`}>
+                    Actualizar
                   </Link>
-                  :
-                  <Link to={`/`} onClick={active}>
-                    Quitar Suspensión
-                  </Link>
-              }
-            </ButtonsOptions>
-          </div>
-          <div className='box_content content_options contentmargin_top'>
-            <div>
-              <h2>Credenciales:</h2>
-              <p>Foto Perfil: {user[0].photo_perfil
-                ? <a href={`${uri}${user[0].photo_perfil}`} target='new'>
-                  ver imagen
-                </a>
-                : 'pendiente'}
-              </p>
-              <p>Foto credencial frontal: {user[0].photo_credential_front
-                ? <a href={`${uri}${user[0].photo_credential_front}`} target='new'>
-                  ver imagen
-                </a>
-                : 'pendiente'}
-              </p>
-              <p>Foto sosteniendo credencial: {user[0].photo_credential_revers
-                ? <a href={`${uri}${user[0].photo_credential_revers}`} target='new'>
-                  ver imagen
-                </a>
-                : 'pendiente'}
-              </p>
-            </div>
-            <ButtonsOptions>
-              {
-                !user[0].certificate
-                  ?
-                  <Link to={`/`} onClick={certificate}>
-                    Certificar
-                  </Link>
-                  :
-                  <Link to={`/`} onClick={certificate}>
-                    Quitar certificado
-                  </Link>
-              }
-            </ButtonsOptions>
-          </div>
-        </>
+                </ButtonsOptions>
+              </div>
+            ))
+          }
+        </div>
       }
     </Main >
   )
 }
 
-export default UserDetail
+const mapStateToProps = state => ({
+  user: state.user.data
+})
+
+export default connect(mapStateToProps)(UserDetail)
