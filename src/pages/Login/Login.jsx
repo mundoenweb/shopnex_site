@@ -23,7 +23,7 @@ const Login = ({
   }
 
   const session = auth(user)
-  if (session) return <Navigate to="usuarios" />
+  if (session) return <Navigate to="inicio" />
 
   return (
     <section>
@@ -59,7 +59,7 @@ const Login = ({
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user.data
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -12,7 +12,7 @@ const Private = ({ user }) => {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user.data
 })
 
 
