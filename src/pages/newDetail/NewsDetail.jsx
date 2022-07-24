@@ -10,7 +10,7 @@ const NewsDetail = () => {
 
 
   return (
-    <Main title='Detalle noticia'>
+    <Main title={news[0]?.name || 'Detalle noticia'}>
       {
         !news.length &&
         < div > Cargando detalles de la noticia </div>
